@@ -24,6 +24,7 @@ class Kele
       "#{@bloc_base_api_url}/users/me",
       headers: { "authorization" => @auth_token }
     )
+    JSON.parse(response.body)
   end
 
 end
