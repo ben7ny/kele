@@ -19,6 +19,13 @@ class Kele
     end
   end
 
+  def get_me
+    response = self.class.get(
+      "#{@bloc_base_api_url}/users/me",
+      headers: { "authorization" => @auth_token }
+    )
+  end
+
 end
 
 
