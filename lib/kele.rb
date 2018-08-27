@@ -3,6 +3,8 @@ class Kele
   include HTTParty
   require "./lib/roadmap.rb"
   include Roadmap
+  require "./lib/message.rb"
+  include Message
 
 
   def initialize(email, password)
