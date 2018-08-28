@@ -9,10 +9,10 @@ class Kele
 
   def initialize(email, password)
     @bloc_base_api_url = "https://www.bloc.io/api/v1"
-
+    @current_user_email = email
     options = {
       body: {
-        email:    email,
+        email:    @current_user_email,
         password: password
       }
     }
