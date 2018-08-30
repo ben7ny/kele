@@ -1,8 +1,13 @@
 module Message
-  def get_messages(page=1)
+  def get_messages(page=nil)
+    options = {
+       headers: {"authorization" => @auth_token}
+    }
+    if page
+      options.merge!({body: {"page" => page}})
+    end
     response = self.class.get(
-      "#{@bloc_base_api_url}/message_threads",
-      headers: { "authorization" => @auth_token, "page" => page.to_s }
+      "#{@bloc_base_api_url}/message_threads", options
     )
     JSON.parse(response.body)
   end
