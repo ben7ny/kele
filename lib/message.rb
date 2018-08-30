@@ -12,12 +12,14 @@ module Message
     JSON.parse(response.body)
   end
 
-  def create_message(message, recipient_id)
+  def create_message(message, recipient_id, token=nil, subject=nil)
     options = {
       body: {
         "sender" => @current_user_email,
         "stripped-text" => message.strip,
-        "recipient_id" => recipient_id.to_s
+        "recipient_id" => recipient_id.to_s,
+        "token" => token,
+        "subject" => subject
       },
       headers: {
         "authorization" => @auth_token,
